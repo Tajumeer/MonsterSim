@@ -8,7 +8,7 @@ namespace MonsterSim
 {
     public class Combat
     {
-   public List<Object> ListOfMonsters = new List<Object>();
+        public List<Object> ListOfMonsters = new List<Object>();
 
 
     }

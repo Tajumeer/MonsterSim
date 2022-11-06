@@ -12,7 +12,7 @@ namespace MonsterSim
         {
             InputManager InputManagerObj = new InputManager();
             Combat CombatObj = new Combat();
-            InputManagerObj.SetupOrc(CombatObj);
+            InputManagerObj.ChooseMonster(CombatObj);
 
             foreach (var Object in CombatObj.ListOfMonsters)
             {

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Becke\\Documents\\MonsterSim\\ConsoleApp1\\MonsterSim.csproj": {}
+    "C:\\Users\\Becke\\git-MonsterSim\\MonsterSim\\ConsoleApp1\\MonsterSim.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Becke\\Documents\\MonsterSim\\ConsoleApp1\\MonsterSim.csproj": {
+    "C:\\Users\\Becke\\git-MonsterSim\\MonsterSim\\ConsoleApp1\\MonsterSim.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Becke\\Documents\\MonsterSim\\ConsoleApp1\\MonsterSim.csproj",
+        "projectUniqueName": "C:\\Users\\Becke\\git-MonsterSim\\MonsterSim\\ConsoleApp1\\MonsterSim.csproj",
         "projectName": "MonsterSim",
-        "projectPath": "C:\\Users\\Becke\\Documents\\MonsterSim\\ConsoleApp1\\MonsterSim.csproj",
+        "projectPath": "C:\\Users\\Becke\\git-MonsterSim\\MonsterSim\\ConsoleApp1\\MonsterSim.csproj",
         "packagesPath": "C:\\Users\\Becke\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Becke\\Documents\\MonsterSim\\ConsoleApp1\\obj\\",
+        "outputPath": "C:\\Users\\Becke\\git-MonsterSim\\MonsterSim\\ConsoleApp1\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Becke\\AppData\\Roaming\\NuGet\\NuGet.Config",

@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static MonsterSim.AMonster;
 
 namespace MonsterSim
 {
@@ -11,22 +13,34 @@ namespace MonsterSim
 
     public abstract class AMonster
     {
-        public float Health { get; protected set; }
-        public float Attack { get; protected set; }
-        public float Defense { get; protected set; }
-        public float Speed { get; protected set; }
-
-        public enum Race
+        public enum MonsterRace
         {
-            ORC, TROLL, GOBLIN
+            Orc = 1, Troll = 2, Goblin = 3
         }
+        public MonsterRace Race;
 
-        public AMonster(float health, float attack, float defense, float speed)
+        private float health;
+        private float attack;
+        private float defense;
+        private float speed;
+
+        public float Health { get { return health; } protected set { health = value; } }
+        public float Attack { get { return attack; } protected set { attack = value; } }
+        public float Defense { get { return defense; } protected set { defense = value; } }
+        public float Speed { get { return speed; } protected set { speed = value; } }
+
+        public AMonster(int race)
         {
-            this.Health = health;
-            this.Attack = attack;
-            this.Defense = defense;
-            this.Speed = speed;
+            Race = (MonsterRace)race;
+           
+            Console.WriteLine("Set the {0}'s Healthpoints", Race.ToString());
+            float.TryParse(Console.ReadLine(),out this.health);
+            Console.WriteLine("Set the {0}'s Attackpoints", Race.ToString());
+            float.TryParse(Console.ReadLine(), out this.attack);
+            Console.WriteLine("Set the {0}'s Defensepoints", Race.ToString());
+            float.TryParse(Console.ReadLine(), out this.defense);
+            Console.WriteLine("Set the {0}'s Speed", Race.ToString());
+            float.TryParse(Console.ReadLine(), out this.speed);
         }
         public virtual void DoDamage(AMonster monster)
         {
@@ -39,24 +53,12 @@ namespace MonsterSim
         }
     }
 
-    public class Orc : AMonster
-    {
-        public Orc(float health, float attack, float defense, float speed) : base(health, attack, defense, speed)
-        {
-        }     
-    }
-
-    public class Troll : AMonster
-    {
-        public Troll(float health, float attack, float defense, float speed) : base(health, attack, defense, speed)
-        {
+    public class Monster:AMonster
+    { 
+        public Monster(int race):base(race)
+        {   
+            
         }
     }
-
-    public class Goblin : AMonster
-    {
-        public Goblin(float health, float attack, float defense, float speed) : base(health, attack, defense, speed)
-        {
-        }    
-    }
 }
+
