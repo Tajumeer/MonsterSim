@@ -32,7 +32,6 @@ namespace MonsterSim
         public AMonster(int race)
         {
             Race = (MonsterRace)race;
-           
             Console.WriteLine("Set the {0}'s Healthpoints", Race.ToString());
             float.TryParse(Console.ReadLine(),out this.health);
             Console.WriteLine("Set the {0}'s Attackpoints", Race.ToString());
@@ -41,6 +40,9 @@ namespace MonsterSim
             float.TryParse(Console.ReadLine(), out this.defense);
             Console.WriteLine("Set the {0}'s Speed", Race.ToString());
             float.TryParse(Console.ReadLine(), out this.speed);
+            Console.WriteLine("The {0} has {1} HP, {2} AP, {3} DP, and is {4} fast",Race.ToString(), health, attack, defense, speed);
+            Console.WriteLine("--------------------");
+            Console.WriteLine("Choose the second Monster.\nPress 1 to Choose an Orc\nPress 2 to Choose an Troll\nPress 3 to Choose an Goblin\nMonsters of the same Race cant fight amongst each other!");
         }
         public virtual void DoDamage(AMonster monster)
         {

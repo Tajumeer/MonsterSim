@@ -11,23 +11,71 @@ namespace MonsterSim
     {
         public void ChooseMonster(Combat CombatObj)
         {
+            int firstMonster = 0;
+            int monsterAmount = 0;
             Console.WriteLine("Choose the first Monster.\nPress 1 to Choose an Orc\nPress 2 to Choose an Troll\nPress 3 to Choose an Goblin");
-            ConsoleKey temp = Console.ReadKey(true).Key;
-            switch (temp)
+            while (monsterAmount < 2)
             {
-                case ConsoleKey.D1:
-                    Monster OrcObj = new Monster(1);
-                    CombatObj.ListOfMonsters.Add(OrcObj);
-                    break;
-                case ConsoleKey.D2:
-                    Monster TrollObj = new Monster(2);
-                    CombatObj.ListOfMonsters.Add(TrollObj);
-                    break;
-                case ConsoleKey.D3:               
-                    Monster GoblinObj = new Monster(3);
-                    CombatObj.ListOfMonsters.Add(GoblinObj);
-                    break;
+            ConsoleKey temp = Console.ReadKey(true).Key;
+                switch (temp)
+                {
+                    case ConsoleKey.D1:
+                        if (firstMonster == 1)
+                        {
+                            ErrorChooseMonster();
+                            continue;
+                        }
+                        else
+                        {
+                            firstMonster = 1;
+                            monsterAmount++;
+                            Monster OrcObj = new Monster(1);
+                            CombatObj.ListOfMonsters.Add(OrcObj);
+                            continue;
+                        }
+                    case ConsoleKey.D2:
+                        if (firstMonster == 2)
+                        {
+                            ErrorChooseMonster();
+                            continue;
+                        }
+                        else
+                        {
+                            firstMonster = 2;
+                            monsterAmount++;
+                            Monster TrollObj = new Monster(2);
+                            CombatObj.ListOfMonsters.Add(TrollObj);
+                            continue;
+                        }
+                    case ConsoleKey.D3:
+                        if (firstMonster == 3)
+                        {
+                            ErrorChooseMonster();
+                            continue;
+                        }
+                        else
+                        {
+                            firstMonster = 3;
+                            monsterAmount++;
+                            Monster GoblinObj = new Monster(3);
+                            CombatObj.ListOfMonsters.Add(GoblinObj);
+                            continue;
+                        }
+                    default:
+                        Console.WriteLine("default");
+                        continue;
+                }
+
             }
+        }
+
+        public void ErrorChooseMonster()
+        {
+            Console.Clear();
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("Monster's of the same Race cant fight amongst each other.\nPlease choose another Race.");
+            Console.ResetColor();
+            Console.WriteLine("Choose the second Monster.\nPress 1 to Choose an Orc\nPress 2 to Choose an Troll\nPress 3 to Choose an Goblin");
         }
     }
 }
