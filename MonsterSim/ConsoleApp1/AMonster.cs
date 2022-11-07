@@ -62,7 +62,7 @@ namespace MonsterSim
             {
                 Console.WriteLine("Enter a numerical value above 0");
                 float.TryParse(Console.ReadLine(), out this.speed);
-            }
+            }     
             Console.WriteLine("The {0} has {1} HP, {2} AP, {3} DP, and is {4} fast",Race.ToString(), health, attack, defense, speed);
             Console.WriteLine("--------------------");
             Console.WriteLine("Press any key to continue");
@@ -82,18 +82,17 @@ namespace MonsterSim
                 Damage *= 2;
                 Console.Write("The Attacking {0} hits the Defending {1}", attacker.Race, defender.Race);
                 Console.ForegroundColor = ConsoleColor.Red;
-                Console.Write(" for {0} Critical Damage!!!", Damage);
+                Console.Write(" for {0} Critical Damage!!!\n", Damage);
                 Console.ResetColor();
             }
             else Console.WriteLine("The Attacking {0} hits the Defending {1} for {2} Damage",attacker.Race, defender.Race, Damage);
-
         }
     }
 
     public class Monster:AMonster
     { 
         public Monster(int race):base(race)
-        {   
+        {
             
         }
     }

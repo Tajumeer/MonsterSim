@@ -29,13 +29,14 @@ namespace MonsterSim
 
         public void MonsterFight(Monster monster1, Monster monster2)
         {
-            ListOfMonsters[0] = monster1;
-            ListOfMonsters[1] = monster2;
+
             if (SpeedCheck() == 0)
             {
                 while (!isSomeoneDead)
                 {
                     rounds++;
+                    isSomeoneDead = IsKilled(monster1, monster2, isSomeoneDead, rounds);
+
                     monster1.DoDamage(monster1, monster2);
                     if (IsKilled(monster1, monster2, isSomeoneDead, rounds))
                         break;
@@ -44,10 +45,10 @@ namespace MonsterSim
 
                     if (IsKilled(monster1, monster2, isSomeoneDead, rounds))
                         break;
-                    isSomeoneDead = IsKilled(monster1, monster2, isSomeoneDead, rounds);
-                    Console.WriteLine("Both Combatants survived this round press any key to start the next Round.");
-                    Console.ReadKey(true);
-                    Console.Clear();
+                    else if (!IsKilled(monster1, monster2, isSomeoneDead, rounds))
+                    {
+                        Survived(monster1, monster2);
+                    }
                 }
 
             }
@@ -56,33 +57,41 @@ namespace MonsterSim
                 while (!isSomeoneDead)
                 {
                     rounds++;
+                    isSomeoneDead = IsKilled(monster1, monster2, isSomeoneDead, rounds);
+
                     monster2.DoDamage(monster2, monster1);
                     if (IsKilled(monster1, monster2, isSomeoneDead, rounds))
                         break;
                     monster1.DoDamage(monster1, monster2);
                     if (IsKilled(monster1, monster2, isSomeoneDead, rounds))
                         break;
-                    isSomeoneDead = IsKilled(monster1, monster2, isSomeoneDead, rounds);
-                    Console.WriteLine("Both Combatants survived this round press any key to start the next Round.");
-                    Console.ReadKey(true);
-                    Console.Clear();
+                    else if (!IsKilled(monster1, monster2, isSomeoneDead, rounds))
+                    {
+                        Survived(monster1, monster2);
+                    }
                 }
             }
+        }
 
-
+        private void Survived(Monster monster1, Monster monster2)
+        {
+            Console.WriteLine("Both Combatants survived this round press any key to start the next Round.");
+            Console.WriteLine("The {0} has {1} HP left\nThe {2} has {3} HP left.", monster1.Race, monster1.Health, monster2.Race, monster2.Health);
+            Console.ReadKey(true);
+            Console.Clear();
         }
 
         private static bool IsKilled(Monster monster1, Monster monster2, bool isSomeoneDead, int rounds)
         {
+            if (monster1.Health <= 0)
+            {
+                isSomeoneDead = true;
+                Console.WriteLine("The {0} defeated the {1} in Combat after {2} rounds of Battle.", monster2.Race, monster1.Race, rounds);
+            }
             if (monster2.Health <= 0)
             {
                 isSomeoneDead = true;
                 Console.WriteLine("The {0} defeated the {1} in Combat after {2} rounds of Battle.", monster1.Race, monster2.Race, rounds);
-            }
-            if (monster1.Health <= 0)
-            {
-                isSomeoneDead = true;
-                Console.WriteLine("The {0} defeated the {1} in Combat after {2} rounds of Battle..", monster2.Race, monster1.Race, rounds);
             }
 
             return isSomeoneDead;
