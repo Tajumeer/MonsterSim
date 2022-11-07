@@ -17,6 +17,12 @@ namespace MonsterSim
             while (monsterAmount < 2)
             {
             ConsoleKey temp = Console.ReadKey(true).Key;
+                if (monsterAmount == 1)
+                {
+                    Console.Clear();
+                    Console.WriteLine("--------------------");
+                    Console.WriteLine("Choose the second Monster.\nPress 1 to Choose an Orc\nPress 2 to Choose an Troll\nPress 3 to Choose an Goblin\nMonsters of the same Race cant fight amongst each other!");
+                }
                 switch (temp)
                 {
                     case ConsoleKey.D1:

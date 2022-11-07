@@ -19,6 +19,8 @@ namespace MonsterSim
         }
         public MonsterRace Race;
 
+        Random crit = new Random();
+
         private float health;
         private float attack;
         private float defense;
@@ -34,24 +36,57 @@ namespace MonsterSim
             Race = (MonsterRace)race;
             Console.WriteLine("Set the {0}'s Healthpoints", Race.ToString());
             float.TryParse(Console.ReadLine(),out this.health);
+            while (this.health <= 0)
+            {
+                Console.WriteLine("Enter a numerical value above 0");
+                float.TryParse(Console.ReadLine(), out this.health);
+            }
+
             Console.WriteLine("Set the {0}'s Attackpoints", Race.ToString());
             float.TryParse(Console.ReadLine(), out this.attack);
+            while (this.attack <= 0)
+            {
+                Console.WriteLine("Enter a numerical value above 0");
+                float.TryParse(Console.ReadLine(), out this.attack);
+            }
             Console.WriteLine("Set the {0}'s Defensepoints", Race.ToString());
             float.TryParse(Console.ReadLine(), out this.defense);
+            while (this.defense <= 0)
+            {
+                Console.WriteLine("Enter a numerical value above 0");
+                float.TryParse(Console.ReadLine(), out this.defense);
+            }
             Console.WriteLine("Set the {0}'s Speed", Race.ToString());
             float.TryParse(Console.ReadLine(), out this.speed);
+            while (this.speed <= 0)
+            {
+                Console.WriteLine("Enter a numerical value above 0");
+                float.TryParse(Console.ReadLine(), out this.speed);
+            }
             Console.WriteLine("The {0} has {1} HP, {2} AP, {3} DP, and is {4} fast",Race.ToString(), health, attack, defense, speed);
             Console.WriteLine("--------------------");
-            Console.WriteLine("Choose the second Monster.\nPress 1 to Choose an Orc\nPress 2 to Choose an Troll\nPress 3 to Choose an Goblin\nMonsters of the same Race cant fight amongst each other!");
-        }
-        public virtual void DoDamage(AMonster monster)
-        {
-            monster.TakeDamage(monster);
+            Console.WriteLine("Press any key to continue");
+            Console.ReadKey(true);
         }
 
-        public virtual void TakeDamage(AMonster monster)
+        
+        public virtual void DoDamage(AMonster attacker, AMonster defender)
         {
-            Health -= monster.Attack;
+            float Damage = attacker.attack - defender.defense;
+            defender.Health -= Damage;
+            if (Damage <= 0)
+                Damage = 1;
+            int CriticalDamage = crit.Next(0, 100);
+            if (CriticalDamage >= 80)
+            {
+                Damage *= 2;
+                Console.Write("The Attacking {0} hits the Defending {1}", attacker.Race, defender.Race);
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.Write(" for {0} Critical Damage!!!", Damage);
+                Console.ResetColor();
+            }
+            else Console.WriteLine("The Attacking {0} hits the Defending {1} for {2} Damage",attacker.Race, defender.Race, Damage);
+
         }
     }
 
