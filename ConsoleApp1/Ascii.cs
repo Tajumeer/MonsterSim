@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace MonsterSim
 {
+    /// <summary>
+    /// This class Stores Ascii Art
+    /// </summary>
     internal class Ascii
     {
         public string SmorcText = (@"

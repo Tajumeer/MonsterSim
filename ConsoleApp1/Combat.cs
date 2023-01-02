@@ -6,13 +6,21 @@ using System.Threading.Tasks;
 
 namespace MonsterSim
 {
+    /// <summary>
+    /// this Class handles the combat
+    /// </summary>
     public class Combat
     {
         public List<Monster> ListOfMonsters = new List<Monster>();
-
+        
         public bool isSomeoneDead = false;
         Random rnd = new Random();
         public int rounds;
+
+        /// <summary>
+        /// this int returns 0 or 1 based on what monster is faster
+        /// </summary>
+        /// <returns></returns>
         public int SpeedCheck()
 
         {
@@ -27,11 +35,13 @@ namespace MonsterSim
             return 0;
         }
 
+        /// <summary>
+        /// this Controlls the Monsters fight
+        /// </summary>
+        /// <param name="monster1"></param>
+        /// <param name="monster2"></param>
         public void MonsterFight(Monster monster1, Monster monster2)
-        
         {
-            
-
             if (SpeedCheck() == 0)
             {
                 while (!isSomeoneDead)
@@ -75,6 +85,12 @@ namespace MonsterSim
             }
         Console.Clear();
         }
+
+        /// <summary>
+        /// checks if the Monsters are alive
+        /// </summary>
+        /// <param name="monster1"></param>
+        /// <param name="monster2"></param>
         private void Survived(Monster monster1, Monster monster2)
         {
             Console.WriteLine("The {0} has {1} HP left\nThe {2} has {3} HP left.", monster1.Race, monster1.Health, monster2.Race, monster2.Health);
@@ -83,6 +99,14 @@ namespace MonsterSim
             Console.Clear();
         }
 
+        /// <summary>
+        /// returns true when a Monster is dead
+        /// </summary>
+        /// <param name="monster1"></param>
+        /// <param name="monster2"></param>
+        /// <param name="isSomeoneDead"></param>
+        /// <param name="rounds"></param>
+        /// <returns></returns>
         private static bool IsKilled(Monster monster1, Monster monster2, bool isSomeoneDead, int rounds)
         {
             if (monster1.Health <= 0)

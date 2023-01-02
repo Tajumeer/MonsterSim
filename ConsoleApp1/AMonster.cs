@@ -10,7 +10,9 @@ using static MonsterSim.AMonster;
 namespace MonsterSim
 {
 
-
+    /// <summary>
+    /// this class handles Monster interactions and stats
+    /// </summary>
     public abstract class AMonster
     {
         public enum MonsterRace
@@ -31,6 +33,10 @@ namespace MonsterSim
         public float Defense { get { return defense; } protected set { defense = value; } }
         public float Speed { get { return speed; } protected set { speed = value; } }
 
+        /// <summary>
+        /// Constructor with user input for stat values
+        /// </summary>
+        /// <param name="race"></param>
         public AMonster(int race)
         {
             Race = (MonsterRace)race;
@@ -69,7 +75,11 @@ namespace MonsterSim
             Console.ReadKey(true);
         }
 
-        
+        /// <summary>
+        /// this functions lets one monster do damage to another monster
+        /// </summary>
+        /// <param name="attacker"></param>
+        /// <param name="defender"></param>
         public virtual void DoDamage(AMonster attacker, AMonster defender)
         {
             float Damage = attacker.attack - defender.defense;

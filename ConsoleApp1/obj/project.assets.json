@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Becke\\Desktop\\Repo\\MonsterSim\\MonsterSim\\ConsoleApp1\\MonsterSim.csproj",
+      "projectUniqueName": "F:\\UnityRepo\\MonsterSim\\ConsoleApp1\\MonsterSim.csproj",
       "projectName": "MonsterSim",
-      "projectPath": "C:\\Users\\Becke\\Desktop\\Repo\\MonsterSim\\MonsterSim\\ConsoleApp1\\MonsterSim.csproj",
+      "projectPath": "F:\\UnityRepo\\MonsterSim\\ConsoleApp1\\MonsterSim.csproj",
       "packagesPath": "C:\\Users\\Becke\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Becke\\Desktop\\Repo\\MonsterSim\\MonsterSim\\ConsoleApp1\\obj\\",
+      "outputPath": "F:\\UnityRepo\\MonsterSim\\ConsoleApp1\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Becke\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -61,7 +61,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
       }
     }
   }

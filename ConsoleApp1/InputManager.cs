@@ -7,8 +7,16 @@ using System.Threading.Tasks;
 
 namespace MonsterSim
 {
+    /// <summary>
+    /// this class handles User Inputs
+    /// </summary>
     internal class InputManager
     {
+
+        /// <summary>
+        /// This function lets you choose your Monsters
+        /// </summary>
+        /// <param name="CombatObj"></param>
         public void ChooseMonster(Combat CombatObj)
         {
             int firstMonster = 0;
@@ -77,6 +85,9 @@ namespace MonsterSim
             Console.Clear();
         }
 
+        /// <summary>
+        /// This Error checks if the Monsters Race is Different
+        /// </summary>
         public void ErrorChooseMonster()
         {
             Console.Clear();
